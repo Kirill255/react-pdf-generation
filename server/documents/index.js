@@ -1,5 +1,10 @@
 export default ({ name, receiptId, price1, price2 }) => {
   const today = new Date();
+  let day = today.getDate();
+  let month = today.getMonth() + 1;
+  day = day < 10 ? "0" + day : day;
+  month = month < 10 ? "0" + month : month;
+  const date = `${day}. ${month}. ${today.getFullYear()}`;
   return `
     <!doctype html>
     <html>
@@ -92,7 +97,7 @@ export default ({ name, receiptId, price1, price2 }) => {
                       style="width:100%; max-width:156px;">
                   </td>
                   <td>
-                    Date: ${`${today.getDate()}. ${today.getMonth() + 1}. ${today.getFullYear()}.`}
+                    Date: ${date}
                   </td>
                 </tr>
               </table>
